@@ -11,6 +11,13 @@ function formatValue(input: string | number | boolean) {
   }
 }
 
-
 // Problem: 2
+function getLength(input: string | string[] | number[]) {
+  if (typeof input === "string" || Array.isArray(input)) {
+    return input.length;
+  } else {
+    return;
+  }
+}
+
 
