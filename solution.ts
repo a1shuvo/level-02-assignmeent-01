@@ -34,4 +34,13 @@ class Person {
   }
 }
 
+// Problem: 4
+type Book = {
+  title: string;
+  rating: number;
+};
+function filterByRating(books: Book[]) {
+  return books.filter((book) => book.rating >= 4);
+}
+
 
