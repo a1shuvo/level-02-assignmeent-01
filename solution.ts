@@ -39,8 +39,21 @@ type Book = {
   title: string;
   rating: number;
 };
-function filterByRating(books: Book[]) {
+
+function filterByRating(books: Book[]): Book[] {
   return books.filter((book) => book.rating >= 4);
+}
+
+// Problem: 5
+type User = {
+  id: number;
+  name: string;
+  email: string;
+  isActive: boolean;
+};
+
+function filterActiveUsers(users: User[]): User[] {
+  return users.filter((user) => user.isActive);
 }
 
 
