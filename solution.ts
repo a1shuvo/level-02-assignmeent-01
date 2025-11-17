@@ -1,5 +1,5 @@
-// Problem: 1
 type MultiType = string | number | boolean;
+
 function formatValue(input: MultiType): MultiType {
   if (typeof input === "string") {
     return input.toUpperCase();
@@ -10,7 +10,6 @@ function formatValue(input: MultiType): MultiType {
   }
 }
 
-// Problem: 2
 function getLength(input: string | (string | number)[]): number {
   if (typeof input === "string") {
     return input.length;
@@ -18,7 +17,6 @@ function getLength(input: string | (string | number)[]): number {
   return input.length;
 }
 
-// Problem: 3
 class Person {
   name: string;
   age: number;
@@ -28,11 +26,10 @@ class Person {
   }
 
   getDetails(): string {
-    return `Name: ${this.name}, Age: ${this.age}`;
+    return `'Name: ${this.name}, Age: ${this.age}'`;
   }
 }
 
-// Problem: 4
 type Item = {
   title: string;
   rating: number;
@@ -42,7 +39,6 @@ function filterByRating(books: Item[]): Item[] {
   return books.filter((book) => book.rating >= 4);
 }
 
-// Problem: 5
 type User = {
   id: number;
   name: string;
@@ -54,7 +50,6 @@ function filterActiveUsers(users: User[]): User[] {
   return users.filter((user) => user.isActive);
 }
 
-// Problem: 6
 interface Book {
   title: string;
   author: string;
@@ -70,8 +65,8 @@ function printBookDetails(input: Book): void {
   );
 }
 
-// Problem: 7
 type StringOrNumber = string | number;
+
 function getUniqueValues(
   array1: StringOrNumber[],
   array2: StringOrNumber[]
@@ -102,7 +97,23 @@ function getUniqueValues(
   return uniqueArr;
 }
 
-const array1 = [1, 2, 3, 4, 5];
-const array2 = [3, 4, 5, 6, 7];
-console.log(getUniqueValues(array1, array2));
+interface Product {
+  name: string;
+  price: number;
+  quantity: number;
+  discount?: number;
+}
 
+function calculateTotalPrice(products: Product[]): number {
+  return products.reduce((total, product) => {
+    const { price, quantity, discount } = product;
+
+    let totalPrice = price * quantity;
+
+    if (discount) {
+      totalPrice -= (totalPrice * discount) / 100;
+    }
+
+    return (total += totalPrice);
+  }, 0);
+}
